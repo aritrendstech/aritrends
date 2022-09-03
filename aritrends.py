@@ -3,6 +3,8 @@ import qrcode
 import zipfile
 import datetime
 from PIL import Image
+from PIL import ImageDraw
+from PIL import ImageFont
 import webbrowser
 print("http://aritrends.tech\nType 'aritrends.credits()', 'aritrends.license()' or 'aritrends.github()' for more information")
 
@@ -40,9 +42,33 @@ class aritrends:
 		webbrowser.open("http://github.com/aritrendstech")
 	def credits():
 		print("This project is developed by Abhineet Raj (github-> @abhineetraj1).")
+	def write_text_on_image(text, image, font)
+		if ("" in [text,image]):
+			print("Enter valid details")
+		elif (None in [text,image]):
+			print("Enter valid details")
+		else:
+			try:
+				# Open an Image
+				img = Image.open(image)
+				# Call draw Method to add 2D graphics in an image
+				I1 = ImageDraw.Draw(img)
+				if (font == None):
+					# Custom font style and font size
+					myFont = ImageFont.truetype("arial.tff",25)
+				else:
+					# default font style and font size
+					myFont = ImageFont.truetype(font[0].lower()+".tff",font[1])
+				# Add Text to an image
+				I1.text((10, 10), text, font=myFont, fill =(255, 0, 0))
+				# Display edited image
+				img.show() 
+				# Save the edited image
+				img.save(image)
+			except Exception as e:
+				print(e)
 	def license():
 		print("""MIT License
-
 Copyright (c) 2022 Aritrends
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
